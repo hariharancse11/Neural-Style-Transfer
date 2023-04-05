@@ -1,6 +1,5 @@
 import streamlit as st
 from transformers import pipeline
-import tensorflow as tf
 
 def predict_sa(txt):
 
