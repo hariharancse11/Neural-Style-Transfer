@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: rgba(65,143,215,0.6);
+            
+        }
+        .container{
+            padding-top: 0px;
+            display: flex;
+            justify-content: center;
+            line-height: 42px;
+        }
+        
+    </style>
+
+
+
+</head>
+<body>
+    <div class="container">
+        
+    <form action="predict" method="post">
+        <h2>Churn for Bank Customers</h2><br/>
+        {% csrf_token %}
+        CreditScore
+        <input type="text" name="CreditScore" placeholder="CreditScore" /> <br/>
+
+         Geography:
+        <input type="radio" id="france" name="Geography" value="France" /> 
+        <label for="france">France</label>
+        <input type="radio" id="germany" name="Geography" value="Germany" />
+        <label for="germany">Germany</label>
+        <input type="radio" id="spain" name="Geography" value="Spain" /> 
+        <label for="spain">Spain</label><br/>
+
+
+        Gender:
+         <input type="radio" id="male" name="Gender" value="Male"/> 
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="Gender" value="Female"/> 
+        <label for="female">Female</label><br/>
+
+        Age
+        <input type="text" name="Age" placeholder="Age" /> <br/>
+        Tenure
+        <input type="text" name="Tenure" placeholder="Tenure" /> <br/>
+        Balance
+        <input type="text" name="Balance" placeholder="Balance" /> <br/>
+        NumOfProducts
+
+        
+        <label for="prod">Choose a Number of Products:</label>
+
+        <select name="NumOfProducts" id="prod">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br/>
+        
+        
+        
+        HasCrCard
+        <input type="radio" id='lable_yes' name="HasCrCard" value="1" /> 
+        <label for='lable_yes'>Yes</label>
+        <input type="radio" id='lable_no' name="HasCrCard" value="0" />
+        <label for='lable_no'>No</label><br/>
+
+        IsActiveMember
+        <input type="radio" id='active_yes' name="IsActiveMember" value="1" /> 
+        <label for='active_yes'>Yes</label>
+        <input type="radio" id='active_no' name="IsActiveMember" value="0" />
+        <label for='active_no'>No</label><br/>
+        
+        
+        EstimatedSalary
+        <input type="text" name="EstimatedSalary" placeholder="EstimatedSalary" /> <br/>
+        
+        <input type ="submit" value="Predict"/> <br/>
+    </form>
+</div>
+
+<div>
+    {% for msg in messages %}
+    <h1>{{msg}}</h1>
+    {% endfor %}
+</div>
+
+
+</body>
+</html>
