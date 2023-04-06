@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Animated Todo App</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      
+      h1 {
+        font-size: 36px;
+        color: #333;
+        text-align: center;
+        margin-top: 50px;
+      }
+      
+      form {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      input[type="text"] {
+        width: 60%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      
+      li {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      li span {
+        font-size: 24px;
+      }
+      
+      li button {
+        padding: 5px 10px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Todo List</h1>
+    <form>
+      <input type="text" id="todo-input" placeholder="Enter a new todo">
+      <input type="submit" value="Add">
+    </form>
+    <ul id="todo-list">
+    </ul>
+    
+    <script>
+      const form = document.querySelector('form');
+      const input = document.querySelector('#todo-input');
+      const list = document.querySelector('#todo-list');
+      
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const todoText = input.value.trim();
+        if (todoText) {
+          const todoItem = createTodoItem(todoText);
+          list.appendChild(todoItem);
+          input.value = '';
+        }
+      });
+      
+      function createTodoItem(text) {
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        const button = document.createElement('button');
+        span.textContent = text;
+        button.textContent = 'Delete';
+        button.addEventListener('click', () => {
+          li.remove();
+        });
+        li.appendChild(span);
+        li.appendChild(button);
+        return li;
+      }
+    </script>
+  </body>
+</html>
