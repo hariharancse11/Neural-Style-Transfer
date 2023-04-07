@@ -1,4 +1,4 @@
-https://todo-yrt8.onrender.com/
+Check out the website here: https://todo-yrt8.onrender.com/
 
 Django Todo App
 This is a simple Todo app built with Django. The app allows you to create and manage a list of tasks that you need to complete. You can add, edit, and delete tasks as needed.
